@@ -27,7 +27,7 @@ $(document).ready(function(){
 				//console.log("radiobutton: " + temp[0].tagName);
 				if (temp[1].textContent==="true") {
 					$("#content").append(
-						'<div class="radiobutton">' +
+						'<div class="radiobuttons">' +
 						'<label for="RB' + rbId +'">' +
 						'<input type="radio" name="radio-choice" value="' + rbId +'" id="RB' + rbId +'" checked="checked">' +
 						temp[0].textContent +
@@ -37,7 +37,7 @@ $(document).ready(function(){
 				}
 					else if (true) {
 						$("#content").append(
-							'<div class="radiobutton">' +
+							'<div class="radiobuttons">' +
 							'<label for="RB' + rbId +'">' +
 							'<input type="radio" name="radio-choice" value="' + rbId +'" id="RB' + rbId +'">' +
 							temp[0].textContent +
@@ -51,9 +51,9 @@ $(document).ready(function(){
 				//console.log("checkbox: " + temp[0].tagName);
 				if (temp[1].textContent==="true") {
 					$("#content").append(
-						'<div class="checkbox">' +
-						'<label for="RB' + cbId +'">' +
-						'<input type="checkbox" name="check-choice" value="" id="RB' + cbId +'" checked="checked">' +
+						'<div class="checkboxes">' +
+						'<label for="CB' + cbId +'">' +
+						'<input type="checkbox" name="check-choice" value="' + cbId +'" id="CB' + cbId +'" checked="checked">' +
 						temp[0].textContent +
 						'</label>' +
 						'</div>'
@@ -61,9 +61,9 @@ $(document).ready(function(){
 				}
 				else if (true) {
 					$("#content").append(
-						'<div class="checkbox">' +
-						'<label for="RB' + cbId +'">' +
-						'<input type="checkbox" name="check-choice" value="" id="RB' + cbId +'">' +
+						'<div class="checkboxes">' +
+						'<label for="CB' + cbId +'">' +
+						'<input type="checkbox" name="check-choice" value="' + cbId +'" id="CB' + cbId +'">' +
 						temp[0].textContent +
 						'</label>' +
 						'</div>'
@@ -79,4 +79,18 @@ $.ajax({
 		success: parse,
 		error: function(){alert("Error: Something went wrong");}
 	});
+});
+
+$('#buttonSubmit').click(function() { //button that submits the selected options and says the selected items in an alert
+	var selectedCBs;
+	var selectedRB;
+	var string = "";
+	selectedRB = $("input:radio[name='radio-choice']:checked");
+	string = string + $("label[for='" + selectedRB.attr('id') + "']").text() + "\n";
+	selectedCBs = $("input[type=checkbox]:checked").toArray();
+	for (var i = 0; i <= selectedCBs.length - 1; i++) {
+		string = string + $("label[for='" + selectedCBs[i].id + "']").text() + "\n";
+	};
+	//console.log($("input:radio[name='radio-choice']:checked").attr('id'));
+alert("You have selected: \n" + string);
 });
