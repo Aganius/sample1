@@ -1,4 +1,4 @@
-var temp;
+var temp; //temporary variable to help find and save the xml tags in the hierarchy tree
 var rbId = 1;
 var cbId = 1;
 
