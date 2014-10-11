@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<question>
+	<qid>1234</qid>
+	<MediaItem>
+		<text>This is a sample text</text>
+		<location>15,15,100,25</location>
+	</MediaItem>
+	<MediaItem>
+		<radiobutton>This is RB 1</radiobutton>
+		<value>false</value>
+		<location>15,40,100,15</location>
+	</MediaItem>
+	<MediaItem>
+		<radiobutton>This is RB 2</radiobutton>
+		<value>true</value>
+		<location>15,60,100,15</location>
+	</MediaItem>
+	<MediaItem>
+		<radiobutton>This is RB 3</radiobutton>
+		<value>false</value>
+		<location>15,80,100,15</location>
+	</MediaItem>
+	<MediaItem>
+		<radiobutton>This is RB 4</radiobutton>
+		<value>false</value>
+		<location>15,100,100,15</location>
+	</MediaItem>
+	<MediaItem>
+		<text>This is a sample text for checkboxes</text>
+		<location>15,215,100,25</location>
+	</MediaItem>
+	<MediaItem>
+		<checkbox>This is CB 1</checkbox>
+		<value>false</value>
+		<location>15,240,100,15</location>
+	</MediaItem>
+	<MediaItem>
+		<checkbox>This is CB 2</checkbox>
+		<value>true</value>
+		<location>15,260,100,15</location>
+	</MediaItem>
+	<MediaItem>
+		<checkbox>This is CB 3</checkbox>
+		<value>false</value>
+		<location>15,280,100,15</location>
+	</MediaItem>
+	<MediaItem>
+		<checkbox>This is CB 4</checkbox>
+		<value>false</value>
+		<location>15,300,100,15</location>
+	</MediaItem>
+</question>
