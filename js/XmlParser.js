@@ -1,6 +1,6 @@
 var temp; //temporary variable to help find and save the xml tags in the hierarchy tree
-var rbId = 1;
-var cbId = 1;
+var rbId = 1; //Help variable for the radiobuttons id
+var cbId = 1; //Help variable for the checkboxes id
 
 $(document).ready(function(){
 
@@ -82,15 +82,31 @@ $.ajax({
 });
 
 $('#buttonSubmit').click(function() { //button that submits the selected options and says the selected items in an alert
-	var selectedCBs;
 	var selectedRB;
+	var selectedCBs;
 	var string = "";
-	selectedRB = $("input:radio[name='radio-choice']:checked");
+	selectedRB = $("input:radio[type='radio']:checked");
 	string = string + $("label[for='" + selectedRB.attr('id') + "']").text() + "\n";
 	selectedCBs = $("input[type=checkbox]:checked").toArray();
 	for (var i = 0; i <= selectedCBs.length - 1; i++) {
 		string = string + $("label[for='" + selectedCBs[i].id + "']").text() + "\n";
 	};
 	//console.log($("input:radio[name='radio-choice']:checked").attr('id'));
-alert("You have selected: \n" + string);
+	alert("You have selected: \n" + string);
+
+	var jsonObject={};
+    for(i in selectedCBs)
+    {
+        jsonObject[i] = $("label[for='" + selectedCBs[i].id + "']").text();
+    }
+    jsonObject= YAHOO.lang.JSON.stringify(jsonObject); //Creates a String from the JSON object
+    $.post( //Post for the selected radio button and checkboxes
+       'process.php',
+       	{ selectedRB: $("label[for='" + selectedRB.attr('id') + "']").text(), jsonObject: jsonObject },
+        function(data)
+       	{
+        	$('#buttonSubmit').after(data);
+    	});
+
+
 });
